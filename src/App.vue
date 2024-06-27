@@ -1,5 +1,5 @@
 <template>
-  <Navbar />
+  <Navbar :theme="theme" :changeTheme="(theme:string) => this.theme = theme" />
   <div class="container d-flex justify-content-center">
     <Gallery :width="3" :height="4" />
   </div>
@@ -15,6 +15,11 @@ export default defineComponent({
   components: {
     Gallery,
     Navbar,
+  },
+  data() {
+    return {
+      theme: "dark",
+    };
   },
 });
 </script>
