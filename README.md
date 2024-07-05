@@ -1,4 +1,5 @@
-# meow
+# CATalog
+Your daily dose of cats
 
 ## Project setup
 ```
