@@ -3,8 +3,7 @@
     :class="`navbar navbar-expand-lg bg-${theme} sticky-top`"
     :data-bs-theme="theme"
   >
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <div class="container container-fluid">
       <button
         class="navbar-toggler"
         type="button"
@@ -17,38 +16,25 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="nav-link active" aria-current="page" href="/">
+          <i class="fa-solid fa-cat fs-1"></i>
+        </a>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown
+            <a class="btn btn-dark" @click="toggleTheme()">
+              <i
+                class="fa-solid"
+                :class="{
+                  'fa-moon': theme === 'light',
+                  'fa-sun': theme === 'dark',
+                }"
+              ></i>
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-
-        <button class="btn btn-primary" @click="changeTheme('light')">
-          Light mode
-        </button>
       </div>
     </div>
   </nav>
@@ -62,7 +48,7 @@ export default {
       type: String,
       default: "dark",
     },
-    changeTheme: {
+    toggleTheme: {
       type: Function,
     },
   },

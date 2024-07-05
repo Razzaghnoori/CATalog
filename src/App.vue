@@ -1,5 +1,5 @@
 <template>
-  <Navbar :theme="theme" :changeTheme="(theme:string) => this.theme = theme" />
+  <Navbar :theme="theme" :toggleTheme="toggleTheme" />
   <div class="container d-flex justify-content-center">
     <Gallery :width="3" :height="4" />
   </div>
@@ -21,6 +21,11 @@ export default defineComponent({
       theme: "dark",
     };
   },
+  methods: {
+    toggleTheme() {
+      this.theme = this.theme === "dark" ? "light" : "dark";
+    },
+  },
 });
 </script>
 
@@ -32,5 +37,8 @@ export default defineComponent({
   text-align: center;
   color: #2c3e50;
   overflow-y: scroll;
+  background-color: rgb(45, 41, 53);
+  min-width: 100vw;
+  min-height: 100vh;
 }
 </style>
